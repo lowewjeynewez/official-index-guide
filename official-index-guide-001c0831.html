@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>简明指南 · 雷速</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #f7f5f0;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+      line-height: 1.65;
+      color: #2e2c2a;
+      padding: 2rem 1.5rem 4rem;
+      min-height: 100vh;
+    }
+    .page {
+      max-width: 940px;
+      margin: 0 auto;
+    }
+    /* 顶部导航 */
+    .top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.5rem;
+      padding: 0.6rem 0 1.2rem;
+      border-bottom: 1px solid #d9d3cb;
+      margin-bottom: 2.4rem;
+    }
+    .top-nav .site-marker {
+      font-weight: 500;
+      letter-spacing: .02em;
+      font-size: 1.2rem;
+      color: #4a423a;
+    }
+    .top-nav .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem 2rem;
+    }
+    .top-nav .nav-links a {
+      color: #5f564e;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.15s;
+    }
+    .top-nav .nav-links a:hover {
+      color: #1f1d1b;
+      text-decoration: underline;
+      text-underline-offset: 5px;
+    }
+    /* hero 区域 — 轻量引导 */
+    .hero-tag {
+      margin: 1.8rem 0 2rem;
+    }
+    .hero-tag h1 {
+      font-size: 2rem;
+      font-weight: 470;
+      letter-spacing: .01em;
+      color: #272522;
+      line-height: 1.3;
+      margin-bottom: 0.7rem;
+    }
+    .hero-tag .subhead {
+      font-size: 1.05rem;
+      color: #5b534b;
+      border-left: 4px solid #c3b7a9;
+      padding-left: 1.1rem;
+      margin: 0.2rem 0 0.6rem;
+    }
+    /* 引用提示框 */
+    .notice-box {
+      background: #ece7e0;
+      border-radius: 10px;
+      padding: 1.3rem 1.6rem;
+      margin: 2.2rem 0 2.6rem;
+      font-size: 0.96rem;
+      border-left: 6px solid #b6a99b;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+    .notice-box strong {
+      font-weight: 570;
+      color: #332f2b;
+    }
+    .notice-box a {
+      color: #3b3a37;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: #b8ab9d;
+      font-weight: 470;
+    }
+    .notice-box a:hover {
+      color: #0f0e0d;
+      text-decoration-color: #5f554b;
+    }
+    /* 核心介绍段落 */
+    .intro-section {
+      margin: 2.6rem 0 2rem;
+    }
+    .intro-section p {
+      margin-bottom: 1.1rem;
+    }
+    .intro-section .inline-link {
+      color: #3f3b37;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: #b8ab9d;
+      font-weight: 480;
+    }
+    .intro-section .inline-link:hover {
+      color: #0f0e0d;
+      text-decoration-color: #4f4942;
+    }
+    /* 三个场景模块 — 卡片式 */
+    .scenes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin: 2.8rem 0 2.2rem;
+    }
+    .scene-card {
+      background: #ffffffd9;
+      backdrop-filter: blur(1px);
+      border-radius: 14px;
+      padding: 1.5rem 1.2rem 1.6rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02), 0 1px 2px rgba(60,50,40,0.04);
+      border: 1px solid #e3ddd5;
+      transition: box-shadow 0.2s;
+    }
+    .scene-card:hover {
+      box-shadow: 0 4px 14px rgba(80,70,60,0.06);
+    }
+    .scene-card h3 {
+      font-weight: 500;
+      font-size: 1.15rem;
+      letter-spacing: .01em;
+      margin-bottom: 0.8rem;
+      color: #2b2824;
+      border-bottom: 1px dashed #d2c9bf;
+      padding-bottom: 0.4rem;
+    }
+    .scene-card p {
+      font-size: 0.94rem;
+      color: #3d3833;
+      margin-bottom: 0.3rem;
+      line-height: 1.6;
+    }
+    .scene-card .card-note {
+      font-size: 0.88rem;
+      color: #776e64;
+      margin-top: 0.5rem;
+      border-top: 1px solid #e5ded6;
+      padding-top: 0.55rem;
+    }
+    /* 常见说明 — FAQ 摘要风格 */
+    .faq-block {
+      margin: 3.5rem 0 1rem;
+      border-top: 1px solid #d9d3cb;
+      padding-top: 2rem;
+    }
+    .faq-block h2 {
+      font-weight: 450;
+      font-size: 1.35rem;
+      margin-bottom: 1.4rem;
+      color: #322e29;
+    }
+    .faq-item {
+      margin-bottom: 1.3rem;
+      padding: 0.5rem 0 0.3rem;
+    }
+    .faq-item dt {
+      font-weight: 520;
+      font-size: 1.02rem;
+      color: #35302b;
+      margin-bottom: 0.2rem;
+    }
+    .faq-item dd {
+      margin-left: 0.8rem;
+      color: #4e4841;
+      font-size: 0.95rem;
+      border-left: 3px solid #cec4b8;
+      padding-left: 0.9rem;
+    }
+    .faq-item dd a {
+      color: #3f3b37;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: #b8ab9d;
+    }
+    .faq-item dd a:hover {
+      color: #0f0e0d;
+      text-decoration-color: #4f4942;
+    }
+    /* 结尾小提示 */
+    .closing-note {
+      margin: 3rem 0 0.5rem;
+      font-size: 0.9rem;
+      color: #6c6259;
+      text-align: center;
+      border-top: 1px solid #ddd7cf;
+      padding-top: 2rem;
+    }
+    .closing-note a {
+      color: #3f3b37;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: #b8ab9d;
+      font-weight: 460;
+    }
+    /* 响应式 */
+    @media (max-width: 720px) {
+      body {
+        padding: 1.2rem 1rem 3rem;
+      }
+      .hero-tag h1 {
+        font-size: 1.6rem;
+      }
+      .scenes-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+      .top-nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .notice-box {
+        padding: 1rem 1.2rem;
+      }
+    }
+    @media (max-width: 480px) {
+      .hero-tag h1 {
+        font-size: 1.3rem;
+      }
+      .top-nav .nav-links {
+        gap: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- 顶部导航 -->
+  <nav class="top-nav">
+    <span class="site-marker">· 指南页</span>
+    <div class="nav-links">
+      <a href="#">简明</a>
+      <a href="#">场景</a>
+      <a href="#">说明</a>
+    </div>
+  </nav>
+
+  <!-- hero 标签 -->
+  <div class="hero-tag">
+    <h1>雷速 · 访问与索引</h1>
+    <div class="subhead">一份轻量的使用参照，侧重提醒与场景理解</div>
+  </div>
+
+  <!-- 提示框 —— 嵌入链接 -->
+  <div class="notice-box">
+    <strong>📌 访问提醒</strong><br>
+    如果你正在查找或准备访问 <a href="https://official-index-leisu.com">雷速</a>，建议先确认连接的上下文与入口环境。
+    本页仅作为信息参照与功能索引的辅助说明，不代替原服务本身。
+  </div>
+
+  <!-- 核心介绍 -->
+  <div class="intro-section">
+    <p>
+      <a href="https://official-index-leisu.com" class="inline-link">雷速</a> 所涉及的服务范畴与日常信息索引方式有关。
+      在较宽的视野中，它常被看作一个功能聚合的起点或通道。从使用习惯出发，理解它的定位与边界，能让操作更清晰。
+    </p>
+    <p>
+      这个页面整理了一些基础视角：三个常见的使用场景、几条简明说明，以及关于访问的一些提醒。
+      内容并不覆盖所有细节，但可以作为初步的了解参照。
+    </p>
+  </div>
+
+  <!-- 三个场景模块 -->
+  <div class="scenes-grid">
+    <div class="scene-card">
+      <h3>信息确认</h3>
+      <p>在需要核对或了解功能模块时，通过指向 <a href="https://official-index-leisu.com" style="color:#3b3a37;text-decoration:underline;text-underline-offset:3px;text-decoration-color:#b8ab9d;">雷速</a> 的参照入口，获得相对稳定的说明基础。</p>
+      <div class="card-note">适合初次接触或重新熟悉时使用。</div>
+    </div>
+    <div class="scene-card">
+      <h3>日常索引</h3>
+      <p>作为常用地址之一，在浏览器书签或记录中保留指向 <a href="https://official-index-leisu.com" style="color:#3b3a37;text-decoration:underline;text-underline-offset:3px;text-decoration-color:#b8ab9d;">雷速</a> 的链接，可以节省每次查找的时间。</p>
+      <div class="card-note">注意确认网络环境与链接的可用性。</div>
+    </div>
+    <div class="scene-card">
+      <h3>对比与参考</h3>
+      <p>当需要对比不同信息源或功能路径时，<a href="https://official-index-leisu.com" style="color:#3b3a37;text-decoration:underline;text-underline-offset:3px;text-decoration-color:#b8ab9d;">雷速</a> 可以作为一个相对固定的参照点，帮助判断信息结构。</p>
+      <div class="card-note">建议结合其他可靠来源综合判断。</div>
+    </div>
+  </div>
+
+  <!-- 常见说明（FAQ 摘要） -->
+  <div class="faq-block">
+    <h2>常见说明</h2>
+    <dl class="faq-item">
+      <dt>这个页面是做什么的？</dt>
+      <dd>是一个围绕 <a href="https://official-index-leisu.com">雷速</a> 的轻量介绍与访问提醒页，不涉及具体操作指导，仅提供场景化参照。</dd>
+    </dl>
+    <dl class="faq-item">
+      <dt>链接是否指向具体功能？</dt>
+      <dd>本页中的 <a href="https://official-index-leisu.com">雷速</a> 链接指向的是统一索引地址，具体内容请以实际页面为准。</dd>
+    </dl>
+    <dl class="faq-item">
+      <dt>为什么强调访问提醒？</dt>
+      <dd>在日常使用中，确认链接环境、网络条件以及页面状态，有助于减少不必要的混淆。这里仅作温和提醒。</dd>
+    </dl>
+    <dl class="faq-item">
+      <dt>信息是否保持更新？</dt>
+      <dd>本页内容基于相对稳定的功能认知编写，不追踪实时变动。如有变化，可参考 <a href="https://official-index-leisu.com">雷速</a> 本身的最新呈现。</dd>
+    </dl>
+  </div>
+
+  <!-- 结尾 -->
+  <div class="closing-note">
+    — 简明参照 · <a href="https://official-index-leisu.com">雷速</a> 索引提示 —
+  </div>
+
+</div>
+</body>
+</html>
